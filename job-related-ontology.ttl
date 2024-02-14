@@ -1,0 +1,126 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix saro: <http://w3id.org/saro#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix candid: <http://example.org/candid/> .
+@prefix job: <https://www.linkedin.com/jobs/view/> .
+@prefix pro: <http://property.org/resource/> .
+@prefix node: <http://property.org/node/>.
+
+saro: rdf:type	owl:Ontology .
+
+saro:Job a owl:Class ;
+	rdfs:label "JOB" .
+
+vcard:Expertise a owl:Class ;
+	rdfs:label "Expertise" .
+
+dbo:Company a owl:Class ;
+	rdfs:label "Company" .
+
+dbo:Organisation a owl:Class ;
+	rdfs:label "Organisation" .
+
+vcard:Individual a owl:Class .
+	
+saro:DecisionMaker a owl:Class .
+
+saro:Experience a owl:Class .
+	
+
+saro:job_description  rdf:type   rdf:Property,owl:DatatypeProperty ;
+              rdfs:domain   saro:Job ;
+              rdfs:range rdfs:Literal .
+
+saro:job_publisher rdf:type   rdf:Property;
+              rdfs:domain   saro:Job .
+             
+node:job_publisher rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   saro:Job;
+              rdfs:range dbo:Organisation.
+	
+saro:job_location  rdf:type   rdf:Property,owl:DatatypeProperty ;
+              rdfs:domain  saro:Job;
+              rdfs:range  rdfs:Literal.	
+
+saro:job_title  rdf:type   rdf:Property,owl:DatatypeProperty ;
+              rdfs:domain  saro:Job;
+              rdfs:range  rdfs:Literal.	
+
+
+saro:job_employment_type  rdf:type   rdf:Property ;
+              rdfs:domain   saro:Job .
+
+saro:minimum_work_experience  rdf:type   rdf:Property,owl:DatatypeProperty  ;
+              rdfs:domain   saro:Job ;
+              rdfs:range xsd:integer . 
+     
+node:minimum_work_experience  rdf:type   rdf:Property,owl:ObjectProperty  ;
+              rdfs:domain   saro:Job .
+
+saro:required_expertise_in rdf:type   rdf:Property,owl:DatatypeProperty;
+              rdfs:domain   saro:Job .
+             
+
+saro:skills rdf:type   rdf:Property,owl:ObjectProperty;
+              rdfs:domain   saro:Job .
+
+saro:skill rdf:type   rdf:Property,owl:ObjectProperty;
+              rdfs:range  vcard:Expertise .
+
+saro:summary rdf:type   rdf:Property,owl:DatatypeProperty ;
+              rdfs:domain   saro:Job .
+saro:category rdf:type   rdf:Property,owl:DatatypeProperty ;
+              rdfs:domain   saro:Job .
+node:category rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   saro:Job .
+   
+
+         
+saro:job_apply_link rdf:type   rdf:Property,owl:DatatypeProperty  ;
+              rdfs:domain  saro:Job;
+              rdfs:range  rdfs:Literal.	
+
+saro:min_salary  rdf:type   rdf:Property,owl:DatatypeProperty  ;
+              rdfs:domain   saro:Job ;
+              rdfs:range xsd:integer .
+saro:max_salary  rdf:type   rdf:Property,owl:DatatypeProperty  ;
+              rdfs:domain   saro:Job ;
+              rdfs:range xsd:integer .
+
+saro:job_salary_period  rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   saro:Job .
+
+saro:foundIn  rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   saro:Job ;
+              rdfs:range dbo:industry .
+
+saro:createdBy  rdf:type   rdf:Property ,owl:ObjectProperty;
+              rdfs:domain   saro:Job;
+              rdfs:range saro:DecisionMaker , vcard:Individual.
+
+saro:appliedBy rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   saro:Job ;
+              rdfs:range vcard:Individual .
+
+foaf:posted_job  rdf:type   rdf:Property,owl:ObjectProperty ;
+              rdfs:domain   dbo:Company,dbo:Organisation ;
+              rdfs:range saro:Job.
+
+
+
+
+
+               
+                
+
+
+            
+
+
+		  
